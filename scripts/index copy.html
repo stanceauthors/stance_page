@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STANCE: Spatiotemporal Adaptive Video Generation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div id="mobile-warning">
+        For the best experience, it's better to use a desktop computer to view this website.
+        <br>
+        <button onclick="dismissWarning()">Continue</button>
+    </div>
+    
+    <div class="sidebar">
+        <h2 class="sidebar-title">STANCE</h2>
+        <ul>
+            <li><a href="#stance-showcase" class="nav-link"><i class="fas fa-star"></i> STANCE Showcase</a></li>
+            <li><a href="#real-world" class="nav-link"><i class="fas fa-globe"></i> Real World Captures</a></li>
+            <li><a href="#comparison" class="nav-link"><i class="fas fa-balance-scale"></i> Comparison</a></li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <div id="paper-info" class="paper-info">
+            <h1>STANCE: Motion Coherent Video generation Via Sparse-To-dense ANChored Encoding</h1>
+            <p class="subtitle">Generating dynamic videos from single frames with controllable object motion</p>
+        </div>
+
+        <!-- STANCE Showcase Section -->
+        <section id="stance-showcase" class="main-section">
+            <h2><i class="fas fa-star"></i> STANCE Showcase</h2>
+            <p class="section-description">
+                These videos demonstrate STANCE's ability to generate dynamic sequences from a single input frame. 
+                Each pair shows the initial frame (left) and the generated video (right).
+            </p>
+            
+            <!-- Vary Subsection -->
+            <div class="subsection">
+                <h3>Velocity and Mass Variations</h3>
+                <p class="subsection-description">Demonstrating how STANCE can generate different motion patterns from the same initial frame.</p>
+                
+                <div class="video-grid">
+                    <!-- Vary Cases - First Row (4 videos) -->
+                    <div class="video-pair">
+                        <div class="video-row-four">
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/1.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/vary/1/validation-0-0-24_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Vary Case 1-1</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/2.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/vary/1/validation-0-0-25_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Vary Case 1-2</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/3.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/vary/2/validation-0-0-21_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Vary Case 2-1</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/4.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/vary/2/validation-0-0-46_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Vary Case 2-2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vary Cases - Second Row (2 videos) -->
+                    <div class="video-pair">
+                        <div class="video-row-four">
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/5.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/vary/3/validation-0-0-0_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Vary Case 2-3</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/6.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/vary/3/validation-0-0-26_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Vary Case 2-4</div>
+                                </div>
+                            </div>
+                            <!-- Empty containers to maintain flex layout -->
+                            <div class="video-container-with-frame" style="visibility: hidden;"></div>
+                            <div class="video-container-with-frame" style="visibility: hidden;"></div>
+                        </div>
+                        <div class="pair-description">
+                            <strong>Velocity and Mass Variations:</strong> Different velocity patterns and mass properties applied to identical initial conditions, showing the model's ability to generate diverse motion trajectories with varying physical properties.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multi-Object Subsection -->
+            <div class="subsection">
+                <h3>Multi-Object Scenarios</h3>
+                <p class="subsection-description">STANCE's capability in handling complex scenes with multiple interacting objects.</p>
+                
+                <div class="video-grid">
+                    <!-- Multi-Object Row 1 -->
+                    <div class="video-pair">
+                        <div class="video-row-four">
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/7.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/multi_obj/validation-0-0-11_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Multi-Object Scene 1</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/8.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/multi_obj/validation-0-1-5_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Multi-Object Scene 2</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/9.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/multi_obj/validation-0-2-14_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Multi-Object Scene 3</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/10.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/multi_obj/validation-0-3-23_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Multi-Object Scene 4</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pair-description">
+                            <strong>Multi-Object Cases (Row 1):</strong> Demonstrating STANCE's ability to generate coherent motion for scenes with multiple interacting objects, maintaining spatial relationships and realistic dynamics.
+                        </div>
+                    </div>
+
+                    <!-- Multi-Object Row 2 -->
+                    <div class="video-pair">
+                        <div class="video-row-four">
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/11.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/multi_obj/validation-0-4-21_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Multi-Object Scene 5</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/12.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/multi_obj/validation-0-6-7_bottom_left.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Multi-Object Scene 6</div>
+                                </div>
+                            </div>
+                            <!-- Empty slots for consistent layout -->
+                            <div class="video-container-with-frame" style="visibility: hidden;">
+                                <div class="first-frame-placeholder"></div>
+                                <div class="video-container-small"></div>
+                            </div>
+                            <div class="video-container-with-frame" style="visibility: hidden;">
+                                <div class="first-frame-placeholder"></div>
+                                <div class="video-container-small"></div>
+                            </div>
+                        </div>
+                        <div class="pair-description">
+                            <strong>Multi-Object Cases (Row 2):</strong> Additional complex multi-object scenarios showcasing diverse interaction patterns and motion coordination between multiple entities in the scene.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Composite Scenes Subsection -->
+            <div class="subsection">
+                <h3>Composite Scenes</h3>
+                <p class="subsection-description">Controllable object interactions in composite scenarios with precise motion dynamics control.</p>
+                
+                <div class="video-grid">
+                    <!-- Keep Green Object Static -->
+                    <div class="video-pair">
+                        <div class="video-row-four">
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/13.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/让绿色不动/tmp_4fb6a50c_4_7e87bb2c.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Keep Green Static 1</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/14.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/让绿色不动/tmp_4fb6a50c_5_1673c181.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Keep Green Static 2</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/15.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/速度变慢，撞到一起/tmp_59cab502_3_d4370a65.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Slow Collision 1</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/16.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/速度变慢，撞到一起/tmp_59cab502_4_142b6527.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Slow Collision 2</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pair-description">
+                            <strong>Composite Scene Control:</strong> Precise control over object behavior including keeping specific objects static (让绿色不动) and controlling collision dynamics with speed variations (速度变慢，撞到一起).
+                        </div>
+                    </div>
+
+                    <!-- Direction Control -->
+                    <div class="video-pair">
+                        <div class="video-row-four">
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/17.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/改变速度方向/tmp_65cb3c85_4_5291d291.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Direction Change 1</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/18.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/改变速度方向/tmp_65cb3c85_0_6b8a4043.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Direction Change 2</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/19.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/vary速度方向，没撞上/tmp_6cbdc52e_5_00761c16.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Avoid Collision 1</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/20.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/vary速度方向，没撞上/tmp_6cbdc52e_3_d223f6a6.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Avoid Collision 2</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pair-description">
+                            <strong>Direction Control:</strong> Fine-grained control over motion direction (改变速度方向) and collision avoidance (vary速度方向，没撞上), demonstrating precise trajectory control capabilities.
+                        </div>
+                    </div>
+
+                    <!-- Additional Direction Variants -->
+                    <div class="video-pair">
+                        <div class="video-row-four">
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/21.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/改变速度方向_1/tmp_4c34f81c_4_2686137b.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Direction Change 1-1</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/22.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/改变速度方向_1/tmp_4c34f81c_3_e96c6d9b.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Direction Change 1-2</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/23.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/改变vel方向/tmp_35797f71_3_92230724.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Vel Direction 1</div>
+                                </div>
+                            </div>
+                            <div class="video-container-with-frame">
+                                <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/stance_showcase/24.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                    <video controls loop muted>
+                                        <source src="./assets/qualitative_video/realistic_case/改变vel方向/tmp_35797f71_1_c6707bc1.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="video-label">Vel Direction 2</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pair-description">
+                            <strong>Direction Variants:</strong> Additional variants including 改变速度方向_1 and 改变vel方向 to further demonstrate directional control diversity.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Real World Captures Section -->
+        <section id="real-world" class="main-section">
+            <h2><i class="fas fa-globe"></i> Real World Captures</h2>
+            <p class="section-description">
+                STANCE applied to real-world scenarios captured from actual environments, demonstrating the model's capability to handle authentic natural scenes.
+            </p>
+            
+            <div class="video-grid">
+                <div class="video-pair">
+                    <div class="video-row-four">
+                        <div class="video-container-with-frame">
+                            <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/real_capture/real_1.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                <video controls loop muted>
+                                    <source src="./assets/real_world_video/validation-55400-0-0_bottom_right.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-label">Real World Scene 1</div>
+                            </div>
+                        </div>
+                        <div class="video-container-with-frame">
+                            <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/real_capture/real_2.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                <video controls loop muted>
+                                    <source src="./assets/real_world_video/validation-55400-1-1_bottom_right.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-label">Real World Scene 2</div>
+                            </div>
+                        </div>
+                        <div class="video-container-with-frame">
+                            <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/real_capture/real_3.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                <video controls loop muted>
+                                    <source src="./assets/real_world_video/validation-55400-2-2_bottom_right.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-label">Real World Scene 3</div>
+                            </div>
+                        </div>
+                        <div class="video-container-with-frame">
+                            <div class="video-container-small">
+                                    <div class="first-frame-placeholder">
+                                        <img src="./assets/first_frame/real_capture/real_4.png" alt="First Frame" />
+                                    </div>
+                                    <div class="video-label">Initial condition</div>
+                                </div>
+                                <div class="video-container-small">
+                                <video controls loop muted>
+                                    <source src="./assets/real_world_video/validation-55400-3-3_bottom_right.mp4" type="video/mp4">
+                                </video>
+                                <div class="video-label">Real World Scene 4</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pair-description">
+                        <strong>Real World Captures:</strong> STANCE applied to authentic real-world scenarios, demonstrating robust performance on natural environments and diverse object interactions captured from actual scenes.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section id="comparison" class="main-section">
+            <h2><i class="fas fa-balance-scale"></i> Comparison</h2>
+            <p class="section-description">
+                Comparative analysis between STANCE and other video generation methods.
+            </p>
+            
+            <div class="video-grid">
+                <!-- Comparison Case 1 -->
+                <div class="video-pair">
+                    <div class="video-row-four no-wrap">
+                        <div class="video-container-small">
+                            <div class="first-frame-placeholder">
+                                <img src="./assets/first_frame/comparison/1.png" alt="First Frame" />
+                            </div>
+                            <div class="frame-label">Initial condition</div>
+                            <div class="video-label">First Frame</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_1/our_1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">Ours</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_1/dragany_1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">DragAny</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_1/sgi2v_1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">SGI2V</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_1/motion_pro_1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">MotionPro</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_1/mofa_1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">MoFA</div>
+                        </div>
+                    </div>
+                    <div class="pair-description">
+                        <strong>Case 1:</strong> Five baseline methods for direct comparison.
+                    </div>
+                </div>
+
+                <!-- Comparison Case 2 -->
+                <div class="video-pair">
+                    <div class="video-row-four no-wrap">
+                        <div class="video-container-small">
+                            <div class="first-frame-placeholder">
+                                <img src="./assets/first_frame/comparison/2.png" alt="First Frame" />
+                            </div>
+                            <div class="frame-label">Initial condition</div>
+                            <div class="video-label">First Frame</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_2/our_2.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">Ours</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_2/dragany_2.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">DragAny</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_2/sgi2v_2.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">SGI2V</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_2/motion_pro_2.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">MotionPro</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_2/mofa_2.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">MoFA</div>
+                        </div>
+                    </div>
+                    <div class="pair-description">
+                        <strong>Case 2:</strong> Five baseline methods for direct comparison.
+                    </div>
+                </div>
+
+                <!-- Comparison Case 3 -->
+                <div class="video-pair">
+                    <div class="video-row-four no-wrap">
+                        <div class="video-container-small">
+                            <div class="first-frame-placeholder">
+                                <img src="./assets/first_frame/comparison/3.png" alt="First Frame" />
+                            </div>
+                            <div class="frame-label">Initial condition</div>
+                            <div class="video-label">First Frame</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_3/our_3.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">Ours</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_3/dragany_3.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">DragAny</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_3/sgi2v_3.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">SGI2V</div>
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_3/motion_pro_3.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">MotionPro</div> 
+                        </div>
+                        <div class="video-container-small">
+                            <video controls loop muted>
+                                <source src="./assets/comparison_video/case_3/mofa_3.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label">MoFA</div>
+                        </div>
+                    </div>
+                    <div class="pair-description">
+                        <strong>Case 3:</strong> Five baseline methods for direct comparison.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
